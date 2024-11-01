@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../Elements/Logo'
 import FormSignIn from '../Fragments/FormSignIn'
 
@@ -91,12 +92,25 @@ const AuthLayout = (props) => {
             {/* sign in with google end */}
             {/* link start */}
             <div className="flex justify-center">
-              <a className="text-primary text-sm font-bold">Create an account</a>
-            </div>
-            {/* link end */}
-          </div>
-          {/* container end */}
+              {type == "sign up" ? (
+                <>
+                  <span className="text-sm text-gray-03">
+                    Already have an account?&nbsp;
+                  </span>
+              <Link to= "/login" className="text-primary text-sm font-bold">
+                Sign In here
+              </Link>
+            </>
+          ) : (
+            <Link to= "/register" className="text-primary text-sm font-bold">
+              Create an account
+            </Link>
+          )}
         </div>
-      )
-    }
+        {/* link end */}
+      </div>
+      {/* container end */}
+    </div>
+  )
+}
 export default AuthLayout
